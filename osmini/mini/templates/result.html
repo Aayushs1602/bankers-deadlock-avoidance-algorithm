@@ -1,0 +1,26 @@
+<form action="/result" method="POST">
+        {% csrf_token %}
+                <div>
+                    Max Available Resources
+                    <input type=text name="Max" required></input>
+                </div>
+        {%for i in Resources %}
+                <div>
+                    Enter the number of Resources
+                    {{i}}
+                    <input type=text name="Resources{{i}}" required></input>
+                </div>
+        {%endfor%} 
+        {%for i in Processess %}
+                <div>
+                    {{i}}
+                    Enter the number of Processess
+                    <input type=text name="Processess{{i}}"  required></input>
+                </div>     
+        {%endfor%} 
+                <div>
+                    <button type='submit'>Submit</button>
+                </div>
+                <input type="hidden" name="Resources" value="{{Resources}}"></input>
+                <input type="hidden" name="Processess" value="{{Processess}}"></input>
+</form>
